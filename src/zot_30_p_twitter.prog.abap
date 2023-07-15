@@ -100,3 +100,5 @@ INTO TABLE @DATA(gt_degis).
   ENDIF.
 
   cl_demo_output=>display( ).
+
+  BREAK otabilgin.
