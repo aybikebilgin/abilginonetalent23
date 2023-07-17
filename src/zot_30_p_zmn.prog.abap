@@ -52,29 +52,6 @@ START-OF-SELECTION.
      FROM zot_30_t_zmn
      INTO TABLE @DATA(t_zaman).
 
-    IF sy-subrc = 0.
-      cl_demo_output=>display( t_zaman ).
-
-    ENDIF.
 
 
-    SELECT * INTO TABLE lt_zaman
-      FROM zot_30_t_zmn
-      WHERE indx IN s_index.
-
-    LOOP AT lt_zaman INTO ls_zaman.
-      WRITE /.
-
-  lv_dakika = lv_saniye DIV 60.
-  lv_saniye = lv_saniye MOD 60.
-  lv_saat   = lv_dakika DIV 60.
-  lv_dakika = lv_dakika MOD 60.
-  lv_yil    = lv_gun DIV 365.
-  lv_gun    = lv_gun MOD 365.
-  lv_ay     = lv_gun DIV 30.
-  lv_gun    = lv_gun MOD 30.
-
-  ENDLOOP.
-
-  cl_demo_output=>write( | { lv_gun } gün  { lv_saat } saat { lv_dakika } dakika { lv_saniye } saniye fark vardır.  | ).
   cl_demo_output=>display(  ).
